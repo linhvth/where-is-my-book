@@ -28,7 +28,7 @@ def draw_dividers(img, dividers):
 
     return new_img
 
-def drawing_roi(img, match):
+def drawing_roi(img, match, ipynb=False):
     img_copy = img.copy()
     h = img_copy.shape[0]
     x1 = match['x1']
@@ -37,9 +37,11 @@ def drawing_roi(img, match):
     pt2 = (x2, round(h*0.95))
     cv2.rectangle(img_copy, pt1, pt2, [255,0,0], 15)
 
-    # Custom window
-    cv2.namedWindow('Where is my book?', cv2.WINDOW_KEEPRATIO)
-    cv2.imshow('Where is my book?', img_copy)
-    cv2.resizeWindow('Where is my book?', 800, 600)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    if ipynb:
+        return img_copy
+    else:
+        cv2.namedWindow('Where is my book?', cv2.WINDOW_KEEPRATIO)
+        cv2.imshow('Where is my book?', img_copy)
+        cv2.resizeWindow('Where is my book?', 800, 600)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()

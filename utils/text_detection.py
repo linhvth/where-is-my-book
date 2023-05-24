@@ -5,7 +5,7 @@ import easyocr
 import numpy as np
 import pandas as pd
 
-BLOCKLIST = "0123456789`[]!@#$%^&*()_+-=:}{<>?"
+BLOCKLIST = "0123456789`[]!@#$%^&*()_+-=:}{<>?,:"
 
 def img_roi(img, p_top=0.25, p_bot=0.8):
     top = round(img.shape[0]*p_top)

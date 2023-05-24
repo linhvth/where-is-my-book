@@ -160,7 +160,7 @@ def eliminate_cross(lines, circles, tolerance=10): # not good yet
                 if x_l in range(x_c - radius + tolerance, x_c + radius - tolerance):
                     final_lines.remove(l)
     
-    print(len(final_lines))
+    # print(len(final_lines))
     return final_lines
 
 def get_important_lines(lines):
@@ -185,7 +185,7 @@ def get_important_lines(lines):
             else: # this is a divider
                 i = j
                 break
-    print(len(dividers))
+    # print(len(dividers))
     return dividers
 
 def line_sifting(img, lines, min_length=0.15): #bug
@@ -194,7 +194,7 @@ def line_sifting(img, lines, min_length=0.15): #bug
     """
     h = img.shape[0]
     strong_lines = []
-    print("before: ", len(lines))
+    # print("before: ", len(lines))
 
 
     if lines is not None:
@@ -208,7 +208,7 @@ def line_sifting(img, lines, min_length=0.15): #bug
                 strong_lines.append([x, length_y])
                 
     strong_lines.sort() # sort by x-axis
-    print(len(strong_lines))
+    # print(len(strong_lines))
     return strong_lines
 
 def blue_circles(img, img_hsv): # not optimal yet, dont use for now
